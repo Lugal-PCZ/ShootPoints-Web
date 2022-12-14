@@ -21,11 +21,11 @@ ShootPoints-Web’s processing and storage requirements are minimal, and it runs
 Serial communications protocols have only been created for Topcon GTS-300 series total stations, but ShootPoint Web’s modular design means that other makes and models of total station will be added in the future.
 
 shootpoints-web-api requires the following third-party Python packages, installation instructions for which are provided below:
-- fastapi
-- pyserial
-- python-multipart
-- utm
-- uvicorn
+* fastapi
+* pyserial
+* python-multipart
+* utm
+* uvicorn
 
 # Installation
 ## Clone ShootPoints-Web into your project directory:
@@ -76,7 +76,7 @@ ShootPoints-Web’s interface has five primary components:
 
 ![ShootPoints-Web interface overview](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_Overview.png?raw=true)
 1. **On-The-Fly Adjustments**: Click the arrows icon in the upper left to set atmospheric corrections and prism offsets, which may vary from one shot to the next.
-2. **Utilities**: Click the gears icon in the upper right to download data or delete a surveying session. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down.
+2. **Utilities**: Click the gears icon in the upper right to download data or delete a surveying session. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down or reboot it.
 3. **Output Box**: The results of your commands will be displayed here.
 4. **“Surveying” Section**: Expand this area to collect data with the total station.
 5. **“Setup” Section**: Expand this area to input values that should be set prior to beginning surveying, such as your site, total station benchmarks, and class/subclass.
@@ -147,3 +147,41 @@ Add additional stations if you’re working with an existing site with multiple 
 Continue taking shots, each of which will be saved to the current grouping. To begin taking shots in a new grouping, simply create a new grouping as described above. You can also end a grouping or session deliberately. (This is useful if multiple excavators are using the total station and you want to prevent the accidental addition of new shots to existing groupings.)
 
 Note that any grouping shot with an “Isolated Point” geometry can logically only have one shot saved to it, so if you’re taking a series of these (such as is typical of end-of-day point elevations in a trench), you will need to create a new grouping for each shot. Though this sounds needlessly cumbersome, in practice it is a quick process and ensures that your data are marked consistently.
+
+
+## Download data:
+1. Click the gears icon in the upper right to open the Utilities panel.
+2. Select the desired session under “Export Surveying Session Data.”
+3. Click the “Export” button.  
+![Export Surveying Session Data form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_ExportData.png?raw=true)
+4. Find the newly-downloaded “ShootPoints_Export.zip” file in your Downloads folder and unzip it.
+
+The unzipped directory will be named “ShootPoints_Data_*nnnnnnnnnnnnnn*” with a timestamp for when the session was started (e.g., “ShootPoints_Data_20221031063732”) with the following structure:
+
+```
+.
+|-- session_info.json
+|-- shots_data.csv
+|-- for_qgis
+|    |-- allshots.csv
+|    |-- closedpolygons.csv
+|    |-- openpolygons.csv
+|    |-- pointclouds.csv
+|-- photogrammetry_gcps
+|    |-- gcps_for_dronedeploy.csv
+|    |-- gcps_for_metashape.csv
+|    |-- gcps_for_webodm.txt
+```
+
+The contents of the files are as follows:
+* **session_info.json**: Comprehensive metadata about the surveying session, including counts of the groupings and shots taken.
+* **shots_data.csv**: All shots taken during the surveying session, saved as a flat CSV file.
+* **for_qgis**: Directory with CSV files of the shots taken, with geometry saved in [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format for direct import into [QGIS](https://qgis.org). Note that because QGIS layers can only hold one geometry, each of the four ShootPoints geometries is saved as a separate file, to be imported as a separate QGIS layer.
+  * **allshots.csv**: All the shots in the surveying session represented as WKT _POINT_ objects.
+  * **closedpolygons.csv**: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as WKT _POLYGON Z_ objects.
+  * **openpolygons.csv**: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as WKT _LINESTRING Z_ objects.
+  * **pointclouds.csv**: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as WKT _MULTIPOINT Z_ objects.
+* **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing.
+  * **gcps_for_dronedeploy.csv**: CSV file of points of ShootPoints Operation/GCP class/subclass, for importing into [DroneDeploy](https://www.dronedeploy.com).
+  * **gcps_for_metashape.csv**: CSV file of points of ShootPoints Operation/GCP class/subclass, for importing into [Agisoft Metashape](https://www.agisoft.com).
+  * **gcps_for_webodm.txt**: Text file of points of ShootPoints Operation/GCP class/subclass, for importing into [WebODM](https://www.opendronemap.org/webodm/).
