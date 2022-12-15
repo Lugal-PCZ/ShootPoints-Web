@@ -122,8 +122,8 @@ Add additional stations if you’re working with an existing site with multiple 
 7. Click the “Set Instrument Azimuth” or “Shoot Backsight” button. (The button label will change, depending on the session type.)  
 ![Start New Session form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_SetInstrumentAzimuth.png?raw=true)  
 ![Start New Session form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_ShootBacksight.png?raw=true)
-10. When prompted to check, verify that the atmospheric conditions and time displayed in the page header are correct. If they aren’t, dismiss the dialog and click the “On-The-Fly” Adjustments (arrows) icon in the upper left and/or the “Utilities” (gears) icon in the upper right to make the necessary adjustments.
-11. If the atmospheric conditions are correct, aim the total station at the landmark or the backsight prism and click “OK” to start the new surveying session.  
+1.  When prompted to check, verify that the atmospheric conditions displayed in the page header are correct. If they aren’t, dismiss the dialog and click the “On-The-Fly” Adjustments (arrows) icon in the upper left to make the necessary adjustments.
+2.  If the atmospheric conditions are correct, aim the total station at the landmark or the backsight prism and click “OK” to start the new surveying session.  
 ![“Please verify” dialog box](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_PleaseVerify.png?raw=true)
 
 ## Create a new grouping:
@@ -181,7 +181,7 @@ The contents of the files are as follows:
   * **closedpolygons.csv**: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as WKT _POLYGON Z_ objects.
   * **openpolygons.csv**: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as WKT _LINESTRING Z_ objects.
   * **pointclouds.csv**: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as WKT _MULTIPOINT Z_ objects.
-* **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing.
-  * **gcps_for_dronedeploy.csv**: CSV file of points of ShootPoints Operation/GCP class/subclass, for importing into [DroneDeploy](https://www.dronedeploy.com).
-  * **gcps_for_metashape.csv**: CSV file of points of ShootPoints Operation/GCP class/subclass, for importing into [Agisoft Metashape](https://www.agisoft.com).
-  * **gcps_for_webodm.txt**: Text file of points of ShootPoints Operation/GCP class/subclass, for importing into [WebODM](https://www.opendronemap.org/webodm/).
+* **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing. All shots taken with the ShootPoints class/subclass of Operation/GCP will be automatically added to these files.
+  * **gcps_for_dronedeploy.csv**: CSV file of GCPs for importing into [DroneDeploy](https://www.dronedeploy.com).
+  * **gcps_for_metashape.csv**: CSV file of GCPs for importing into [Agisoft Metashape](https://www.agisoft.com).
+  * **gcps_for_webodm.txt**: Text file of GCPs for importing into [WebODM](https://www.opendronemap.org/webodm/).
