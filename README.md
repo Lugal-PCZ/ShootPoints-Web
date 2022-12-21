@@ -176,28 +176,36 @@ The unzipped directory will be named “ShootPoints_Data_*nnnnnnnnnnnnnn*” wit
 
 ```
 .
-|-- session_info.json
-|-- shots_data.csv
-|-- for_qgis
-|    |-- allshots.csv
-|    |-- closedpolygons.csv
-|    |-- openpolygons.csv
-|    |-- pointclouds.csv
+|-- gis_shapefiles
+|    |-- allshots.dbf
+|    |-- allshots.shp
+|    |-- allshots.shx
+|    |-- closedpolygons.dbf
+|    |-- closedpolygons.shp
+|    |-- closedpolygons.shx
+|    |-- openpolygons.dbf
+|    |-- openpolygons.shp
+|    |-- openpolygons.shx
+|    |-- pointclouds.dbf
+|    |-- pointclouds.shp
+|    |-- pointclouds.shx
 |-- photogrammetry_gcps
 |    |-- gcps_for_dronedeploy.csv
 |    |-- gcps_for_metashape.csv
 |    |-- gcps_for_webodm.txt
+|-- session_info.json
+|-- shots_data.csv
 ```
 
 The contents of the files are as follows:
-* **session_info.json**: Comprehensive metadata about the surveying session, including counts of the groupings and shots taken.
-* **shots_data.csv**: All shots taken during the surveying session, saved as a flat CSV file.
-* **for_qgis**: Directory with CSV files of the shots taken, with geometry saved in [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format for direct import into [QGIS](https://qgis.org). Note that because QGIS layers can only hold one geometry, each of the four ShootPoints geometries is saved as a separate file, to be imported as a separate QGIS layer.
-  * **allshots.csv**: All the shots in the surveying session represented as WKT _POINT_ objects.
-  * **closedpolygons.csv**: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as WKT _POLYGON Z_ objects.
-  * **openpolygons.csv**: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as WKT _LINESTRING Z_ objects.
-  * **pointclouds.csv**: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as WKT _MULTIPOINT Z_ objects.
+* **gis_shapefiles**: Directory with shapefiles of the shots taken, for direct import into your GIS. Note that because shapefiles can only hold one geometry per file, each of the four ShootPoints geometries is saved as a separate file, to be imported as a separate GIS layer.
+  * **allshots.***: All the shots in the surveying session represented as _POINTZ_ objects.
+  * **closedpolygons.***: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as _POLYGONZ_ objects.
+  * **openpolygons.***: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as _POLYLINEZ_ objects.
+  * **pointclouds.***: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as _MULTIPOINTZ_ objects.
 * **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing. All shots taken with the ShootPoints class/subclass of Operation/GCP will be automatically added to these files.
   * **gcps_for_dronedeploy.csv**: CSV file of GCPs for importing into [DroneDeploy](https://www.dronedeploy.com).
   * **gcps_for_metashape.csv**: CSV file of GCPs for importing into [Agisoft Metashape](https://www.agisoft.com).
   * **gcps_for_webodm.txt**: Text file of GCPs for importing into [WebODM](https://www.opendronemap.org/webodm/).
+* **session_info.json**: Comprehensive metadata about the surveying session, including counts of the groupings and shots taken.
+* **shots_data.csv**: All shots taken during the surveying session, saved as a flat CSV file.
