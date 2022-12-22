@@ -37,11 +37,12 @@ ShootPoints-Web’s processing and storage requirements are minimal, and it runs
 Serial communications protocols have only been created for Topcon GTS-300 series total stations, but ShootPoint Web’s modular design means that other makes and models of total station will be added in the future.
 
 shootpoints-web-api requires the following third-party Python packages, installation instructions for which are provided below:
-* fastapi
-* pyserial
-* python-multipart
-* utm
-* uvicorn
+* [FastAPI](https://fastapi.tiangolo.com)
+* [pySerial](https://github.com/pyserial/pyserial)
+* [PyShp](https://github.com/GeospatialPython/pyshp)
+* [Python-Multipart](https://github.com/andrew-d/python-multipart)
+* [utm](https://github.com/Turbo87/utm)
+* [Uvicorn](https://www.uvicorn.org)
 
 # Installation
 ## Clone ShootPoints-Web into your project directory:
