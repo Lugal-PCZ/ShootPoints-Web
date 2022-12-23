@@ -61,7 +61,7 @@ These instructions presume that you will be installing ShootPoints-Web on a lapt
 By default, shootpoints-web-api will launch in “demo” mode with no serial connection and simulated shot data so you can familiarize yourself with the software without a total station. This, however, can be easily overridden for testing with an actual live connection to a supported total station.
 
 ## Data Management and Categorization
-Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as CSV files via the web interface.
+Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as shapefiles via the web interface for easy inclusion in your project’s GIS.
 
 ShootPoints-Web will not let you begin collecting data without the proper prerequisites (site, station coordinates, and surveying session).
 
@@ -199,7 +199,7 @@ The unzipped directory will be named “ShootPoints_Data_*nnnnnnnnnnnnnn*” wit
 ```
 
 The contents of the files are as follows:
-* **gis_shapefiles**: Directory with shapefiles of the shots taken, for direct import into your GIS. Note that because shapefiles can only hold one geometry per file, each of the four ShootPoints geometries is saved as a separate file, to be imported as a separate GIS layer.
+* **gis_shapefiles**: Directory with shapefiles of the shots taken. Note that because shapefiles can only hold one geometry per file, each of the four ShootPoints geometries is saved as a separate file, to be imported as a separate GIS layer.
   * **allshots.***: All the shots in the surveying session represented as _POINTZ_ objects.
   * **closedpolygons.***: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as _POLYGONZ_ objects.
   * **openpolygons.***: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as _POLYLINEZ_ objects.
