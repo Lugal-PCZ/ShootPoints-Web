@@ -12,6 +12,8 @@ ShootPoints-Web is a set of programs for total station surveying. Based on the [
 
 ShootPoints-Web consists of two interrelated projects: shootpoints-web-api and shootpoints-web-frontend. Though shootpoints-web-api can be run from a laptop connected directly to the total station via a serial cable, it is intended to be installed on a dedicated Raspberry Pi mounted on the tripod of the total station, and controlled wirelessly via shootpoints-web-frontend in a web browser running on a smartphone or tablet on a local wifi network. Instructions for basic installation are provided below and instructions for creating a headless Raspberry Pi ShootPoints-Web server are forthcoming.
 
+[See ShootPoints-Web in Action.](https://youtu.be/kiFEff1Kne4)
+
 
 # Why use ShootPoints-Web?
 Most surveying software, whether running on the total station itself or on an external data collector, is made for surveyors, not archaeologists and is often overly-complicated. Though the tools are the same, archaeologists’ needs are different than general land surveying, so ShootPoints-Web is designed for them. Its core principles are:
