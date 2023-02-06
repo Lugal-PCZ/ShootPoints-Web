@@ -195,6 +195,8 @@ The unzipped directory will be named “ShootPoints_Data_*nnnnnnnnnnnnnn*” wit
 |-- photogrammetry_gcps
 |    |-- gcps_for_dronedeploy.csv
 |    |-- gcps_for_metashape.csv
+|    |-- gcps_for_pix4d.csv
+|    |-- gcps_for_realitycapture.csv
 |    |-- gcps_for_webodm.txt
 |-- session_info.json
 |-- shots_data.csv
@@ -209,6 +211,8 @@ The contents of the files are as follows:
 * **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing. All shots taken with the ShootPoints class/subclass of Operation/GCP will be automatically added to these files.
   * **gcps_for_dronedeploy.csv**: CSV file of GCPs for importing into [DroneDeploy](https://www.dronedeploy.com).
   * **gcps_for_metashape.csv**: CSV file of GCPs for importing into [Agisoft Metashape](https://www.agisoft.com).
+  * **gcps_for_pix4d.csv**: CSV file of GCPs for importing into [Pix4D](https://support.pix4d.com).
+  * **gcps_for_realitycapture.csv**: CSV file of GCPs for importing into [RealityCapture](https://www.capturingreality.com).
   * **gcps_for_webodm.txt**: Text file of GCPs for importing into [WebODM](https://www.opendronemap.org/webodm/).
 * **session_info.json**: Comprehensive metadata about the surveying session, including counts of the groupings and shots taken.
 * **shots_data.csv**: All shots taken during the surveying session, saved as a flat CSV file.
