@@ -175,7 +175,7 @@ Note that any grouping shot with an “Isolated Point” geometry can logically 
 ![Export Surveying Session Data form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_ExportData.png?raw=true)
 4. Find the newly-downloaded “ShootPoints_Export.zip” file in your Downloads folder and unzip it.
 
-The unzipped directory will be named “ShootPoints_Data_*nnnnnnnnnnnnnn*” with a timestamp for when the session was started (e.g., “ShootPoints_Data_20221031063732”) with the following structure:
+The unzipped directory will be named “ShootPoints Data (*label*)” with the following structure:
 
 ```
 .
