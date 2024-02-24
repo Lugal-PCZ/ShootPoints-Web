@@ -19,7 +19,7 @@ ShootPoints-Web consists of two interrelated projects: shootpoints-web-api and s
 Most surveying software, whether running on the total station itself or on an external data collector, is made for surveyors, not archaeologists and is often overly-complicated. Though the tools are the same, archaeologists’ needs are different than general land surveying, so ShootPoints-Web is designed for them. Its core principles are:
 
 * **ShootPoints-Web records _archaeological_ data.**  
-Archaeologists need extensive metadata for their surveying points. ShootPoints-Web structures your workflow to facilitate that while cutting out the cruft.  
+Archaeologists need extensive metadata for their surveying points. ShootPoints-Web structures your workflow to facilitate that while shedding the tools that you’ll never need or use.  
 
 * **ShootPoints-Web is easy to learn.**  
 Tired of the typical on-site bottleneck of waiting for the one person who knows how to use your total station to be free so you can take your point elevations? ShootPoints-Web can be learned quickly by multiple team members, eliminating that bottleneck.  
@@ -75,7 +75,7 @@ Every measurement taken with ShootPoints-Web is part of a grouping, which can be
 * **Closed Polygon**: Multiple sequential points that trace an outline wherein the start point is connected to the end point.
 
 ### Classes and Subclasses
-Each grouping also is assigned a class and subclass to assist in categorization and visualization of the data collected. The following classes and subclasses are populated in the ShootPoints database with a fresh install, but new ones can be added and removed under the “Setup” section, as is appropriate for your site.
+Each grouping also is assigned a class and subclass to assist in categorization and visualization of the data collected. The following classes and subclasses are populated in the ShootPoints database with a fresh install, but new ones can be added and removed under the “Setup” panel, as is appropriate for your site.
 * **Architecture**: Human-built structures.
   * **Floor**: Prepared surfaces upon which human activities took place.
   * **Wall**: Vertical, human-made, constructions that enclose, divide, or delimit space.
@@ -95,10 +95,10 @@ ShootPoints-Web’s interface has five primary components:
 
 ![ShootPoints-Web interface overview](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_Overview.png?raw=true)
 1. **On-The-Fly Adjustments**: Click the arrows icon in the upper left to set atmospheric corrections and prism offsets, which may vary from one shot to the next.
-2. **Utilities**: Click the gears icon in the upper right to download data or delete a surveying session. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down or reboot it.
+2. **Utilities**: Click the gears icon in the upper right to download data, delete a surveying session, or reset the database. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down or reboot it.
 3. **Output Box**: The results of your commands will be displayed here.
-4. **“Surveying” Section**: Expand this area to collect data with the total station.
-5. **“Setup” Section**: Expand this area to input values that should be set prior to beginning surveying, such as your site, total station benchmarks, and class/subclass.
+4. **“Surveying” Panel**: Expand this area to collect data with the total station.
+5. **“Setup” Panel**: Expand this area to input values that should be set prior to beginning surveying such as your site, total station benchmarks, and classes/subclasses.
 
 ## Start the ShootPoints-Web software:
 ```bash
@@ -109,7 +109,7 @@ uvicorn api:app --host 0.0.0.0
 Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<your.computer's.ip.address>:8000/](http://<your.computer's.ip.address>:8000/).
 
 ## Save a new site:
-1. Expand the “Setup” section.
+1. Expand the “Setup” panel.
 2. Enter a name for the new site.
 3. (*optional*) Enter a description for the new site.
 4. Click the “Save New Site” button.  
@@ -127,23 +127,24 @@ Open a web browser on your computer and access ShootPoint Web’s interface at [
 Add additional stations if you’re working with an existing site with multiple benchmarks with known coordinates.
 
 ## Start a new surveying session:
-(*If you’re testing with a total station, be sure that it is set up properly, turned on, and connected to your computer’s serial port. Also verify that the proper serial port is selected under the “Set Configs” form of the “Setup” section.*)
-1. Minimize the “Setup” section and expand the “Surveying” section.
+(*If you’re testing with a total station, be sure that it is set up properly, turned on, and connected to your computer’s serial port. Also verify that the proper serial port is selected under the “Set Configs” form of the “Setup” panel.*)
+1. Expand the “Surveying” panel.
 2. Enter a label for the new surveying session.
 3. Enter your name or initials as the responsible surveyor.
 4. Choose the site.
-5. Choose the occupied point (the station over which the total station is set up).
-6. Choose the session type (note: choose “Azimuth,” if you’re in demo mode):
-   * **Azimuth**: You will aim the total station at a known landmark, enter the bearing to that landmark, and measure the instrument height by hand.
-     * Enter the azimuth to the known landmark and the height of the total station above the occupied point.
-   * **Backsight**: You will to shoot a point between two pre-set stations with known coordinates and have ShootPoints-Web calculate the azimuth and instrument height.
+5. Enter the current temperature and pressure. ShootPoints-Web handles atmospheric corrections automatically.
+6. Choose the session type:
+   * **Backsight**: You will set up on a pre-set station with known coordinates and shoot a backsight to a second pre-set station. ShootPoints-Web will calculate the instrument height and set the azimuth on the total station.
      * Select the backsight station and enter the height of the prism pole.
-7. Click the “Set Instrument Azimuth” or “Shoot Backsight” button. (The button label will change, depending on the session type.)  
-![Start New Session form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_SetInstrumentAzimuth.png?raw=true)  
-![Start New Session form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_ShootBacksight.png?raw=true)
-1.  When prompted to check, verify that the atmospheric conditions displayed in the page header are correct. If they aren’t, dismiss the dialog and click the “On-The-Fly” Adjustments (arrows) icon in the upper left to make the necessary adjustments.
-2.  If the atmospheric conditions are correct, aim the total station at the landmark or the prism and click “OK” to start the new surveying session.  
-![“Please verify” dialog box](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_PleaseVerify.png?raw=true)
+   * **Azimuth**: You will set up on a pre-set station with known coordinates and aim the total station at a known landmark. ShooPoints-Web will set the azimuth on the total station.
+     * Enter the azimuth to the known landmark and the height of the total station above the occupied point.
+   * **Resection**: You will set up on an arbitrary point and shoot backsights to two pre-set stations with known coordinates. ShootPoints-Web will calculate the coordinates of the occupied point and set the azimuth on the total station.
+     * Choose the two backsight stations and enter the height of the total station above the occupied point.
+7. Sight the total station on the prism or landmark and click the “Shoot Backsight” or “Set Instrument Azimuth” button. (The button label will change, depending on the session type.)  
+![Start New Session with Backsight form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_NewSessionBacksight.jpg?raw=true)
+![Start New Session with Azimuth form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_NewSessionAzimuth.jpg?raw=true)
+![Start New Session with Resection form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_NewSessionResection.jpg?raw=true)
+8. (*optional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Backsight #2” button.
 
 ## Create a new grouping:
 1. Select the appropriate geometry.
@@ -173,23 +174,27 @@ Note that any grouping shot with an “Isolated Point” geometry can logically 
 2. Select the desired session under “Export Surveying Session Data.”
 3. Click the “Export” button.  
 ![Export Surveying Session Data form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_ExportData.png?raw=true)
-4. Find the newly-downloaded “ShootPoints_Export.zip” file in your Downloads folder and unzip it.
+4. Find the newly-downloaded “ShootPoints Data (*session name*).zip” file in your Downloads folder and unzip it.
 
-The unzipped directory will be named “ShootPoints Data (*label*)” with the following structure:
+The unzipped directory will be named “ShootPoints Data (*session name*)” with the following structure:
 
 ```
 .
 |-- gis_shapefiles
 |    |-- allshots.dbf
+|    |-- allshots.prj
 |    |-- allshots.shp
 |    |-- allshots.shx
 |    |-- closedpolygons.dbf
+|    |-- closedpolygons.prj
 |    |-- closedpolygons.shp
 |    |-- closedpolygons.shx
 |    |-- openpolygons.dbf
+|    |-- openpolygons.prj
 |    |-- openpolygons.shp
 |    |-- openpolygons.shx
 |    |-- pointclouds.dbf
+|    |-- pointclouds.prj
 |    |-- pointclouds.shp
 |    |-- pointclouds.shx
 |-- photogrammetry_gcps
@@ -203,11 +208,11 @@ The unzipped directory will be named “ShootPoints Data (*label*)” with the f
 ```
 
 The contents of the files are as follows:
-* **gis_shapefiles**: Directory with shapefiles of the shots taken. Note that because shapefiles can only hold one geometry per file, each of the four ShootPoints geometries is saved as a separate file, to be imported as a separate GIS layer.
-  * **allshots.***: All the shots in the surveying session represented as _POINTZ_ objects.
-  * **closedpolygons.***: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as _POLYGONZ_ objects.
-  * **openpolygons.***: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as _POLYLINEZ_ objects.
-  * **pointclouds.***: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as _MULTIPOINTZ_ objects.
+* **gis_shapefiles**: Directory with shapefiles of the shots taken.
+  * **allshots**: All the shots in the surveying session represented as _POINTZ_ objects.
+  * **closedpolygons**: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as _POLYGONZ_ objects.
+  * **openpolygons**: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as _POLYLINEZ_ objects.
+  * **pointclouds**: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as _MULTIPOINTZ_ objects.
 * **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing. All shots taken with the ShootPoints class/subclass of Operation/GCP will be automatically added to these files.
   * **gcps_for_dronedeploy.csv**: CSV file of GCPs for importing into [DroneDeploy](https://www.dronedeploy.com).
   * **gcps_for_metashape.csv**: CSV file of GCPs for importing into [Agisoft Metashape](https://www.agisoft.com).
@@ -216,3 +221,10 @@ The contents of the files are as follows:
   * **gcps_for_webodm.txt**: Text file of GCPs for importing into [WebODM](https://www.opendronemap.org/webodm/).
 * **session_info.json**: Comprehensive metadata about the surveying session, including counts of the groupings and shots taken.
 * **shots_data.csv**: All shots taken during the surveying session, saved as a flat CSV file.
+
+
+# Next Steps
+Add the GCPs to the photogrammetry program of your choosing and plot the shapefiles in your project GIS.
+
+[QGIS](https://qgis.org/) users can also install the [ShootPoints-Web Plotter plugin](https://plugins.qgis.org/plugins/shootpointswebplotter-main/) to quickly plot and style the downloaded shapefiles.  
+![ShootPoints-Web Plotter QGIS Plugin](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-plotter_PluginInstall.jpg?raw=true)
