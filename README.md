@@ -32,7 +32,7 @@ ShootPoints-Web is open source and runs well on inexpensive computers and older 
 
 
 # Requirements
-shootpoints-web-api is written for Python 3.10 and later. Python versions as early as 3.8 may work, but have not been tested.
+shootpoints-web-api is written for Python 3.9 and later.
 
 ShootPoints-Web’s processing and storage requirements are minimal, and it runs well on Raspberry Pi 2 Model B and better SBCs.
 
@@ -56,6 +56,14 @@ git clone --recurse-submodules https://github.com/Lugal-PCZ/ShootPoints-Web.git
 ```bash
 pip3 install -r <path/to/>ShootPoints-Web/shootpoints-web-api/requirements.txt
 ```
+
+## Start the ShootPoints-Web software:
+```bash
+cd <path/to/>ShootPoints-Web/shootpoints-web-api/
+uvicorn api:app --host 0.0.0.0
+```
+
+Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<your.computer's.ip.address>:8000/](http://<your.computer's.ip.address>:8000/).
 
 # Quick Start
 These instructions presume that you will be installing ShootPoints-Web on a laptop or desktop computer for initial testing purposes. Instructions for installing ShootPoints-Web on a Raspberry Pi for fieldwork are forthcoming.
@@ -99,14 +107,6 @@ ShootPoints-Web’s interface has five primary components:
 3. **Output Box**: The results of your commands will be displayed here.
 4. **“Surveying” Panel**: Expand this area to collect data with the total station.
 5. **“Setup” Panel**: Expand this area to input values that should be set prior to beginning surveying such as your site, total station benchmarks, and classes/subclasses.
-
-## Start the ShootPoints-Web software:
-```bash
-cd <path/to/>ShootPoints-Web/shootpoints-web-api/
-uvicorn api:app --host 0.0.0.0
-```
-
-Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<your.computer's.ip.address>:8000/](http://<your.computer's.ip.address>:8000/).
 
 ## Save a new site:
 1. Expand the “Setup” panel.
@@ -223,8 +223,7 @@ The contents of the files are as follows:
 * **shots_data.csv**: All shots taken during the surveying session, saved as a flat CSV file.
 
 
-# Next Steps
-Add the GCPs to the photogrammetry program of your choosing and plot the shapefiles in your project GIS.
-
-[QGIS](https://qgis.org/) users can also install the [ShootPoints-Web Plotter plugin](https://plugins.qgis.org/plugins/shootpointswebplotter-main/) to quickly plot and style the downloaded shapefiles.  
+# View Your Survey Data
+* Add the GCPs to the photogrammetry program of your choosing to help create georeferenced 3D models and orthomosaics.
+* Plot the shapefiles of your survey data in your project GIS. These can be imported directly, but [QGIS](https://qgis.org/) users can also install the [ShootPoints-Web Plotter plugin](https://plugins.qgis.org/plugins/shootpointswebplotter-main/) to quickly plot the downloaded shapefiles, styled beautifully.  
 ![ShootPoints-Web Plotter QGIS Plugin](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-plotter_PluginInstall.jpg?raw=true)
