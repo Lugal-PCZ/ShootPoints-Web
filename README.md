@@ -101,7 +101,7 @@ Each grouping also is assigned a class and subclass to assist in categorization 
 ## ShootPoints-Web Interface
 ShootPoints-Web’s interface has five primary components:
 
-![ShootPoints-Web interface overview](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_Overview.png?raw=true)
+![ShootPoints-Web interface overview](img/Overview.jpg)
 1. **On-The-Fly Adjustments**: Click the arrows icon in the upper left to set atmospheric corrections and prism offsets, which may vary from one shot to the next.
 2. **Utilities**: Click the gears icon in the upper right to download data, delete a surveying session, or reset the database. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down or reboot it.
 3. **Output Box**: The results of your commands will be displayed here.
@@ -113,7 +113,7 @@ ShootPoints-Web’s interface has five primary components:
 2. Enter a name for the new site.
 3. (*optional*) Enter a description for the new site.
 4. Click the “Save New Site” button.  
-![Save New Site form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_SaveNewSite.png?raw=true)
+![Save New Site form](img/SaveNewSite.jpg)
 
 ## Save a new station:
 1. Choose the site where this survey station is located.
@@ -122,7 +122,7 @@ ShootPoints-Web’s interface has five primary components:
 4. Choose the coordinate system.
 5. Enter the station coordinates.
 6. Click the “Save New Station” button.  
-![Save New Station form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_SaveNewStation.png?raw=true)
+![Save New Station form](img/SaveNewStation.jpg)
 
 Add additional stations if you’re working with an existing site with multiple benchmarks with known coordinates.
 
@@ -141,9 +141,9 @@ Add additional stations if you’re working with an existing site with multiple 
    * **Resection**: You will set up on an arbitrary point and shoot backsights to two pre-set stations with known coordinates. ShootPoints-Web will calculate the coordinates of the occupied point and set the azimuth on the total station.
      * Choose the two backsight stations and enter the height of the total station above the occupied point.
 7. Sight the total station on the prism or landmark and click the “Shoot Backsight” or “Set Instrument Azimuth” button. (The button label will change, depending on the session type.)  
-![Start New Session with Backsight form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_NewSessionBacksight.jpg?raw=true)
-![Start New Session with Azimuth form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_NewSessionAzimuth.jpg?raw=true)
-![Start New Session with Resection form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_NewSessionResection.jpg?raw=true)
+![Start New Session with Backsight form](img/NewSessionBacksight.jpg)
+![Start New Session with Azimuth form](img/NewSessionAzimuth.jpg)
+![Start New Session with Resection form](img/NewSessionResection.jpg)
 8. (*optional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Backsight #2” button.
 
 ## Create a new grouping:
@@ -152,17 +152,17 @@ Add additional stations if you’re working with an existing site with multiple 
 3. Enter a label for the grouping.
 4. (*optional*) Enter a description for the new grouping.
 5. Click the “Start New Grouping” button.  
-![Start New Grouping form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_StartNewGrouping.png?raw=true)
+![Start New Grouping form](img/StartNewGrouping.jpg)
 
 
 ## Collect data:
 1. Aim the total station at the prism.
 2. Click the “Take Shot” button.  
-![Take Shot button](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_TakeShot.png?raw=true)
+![Take Shot button](img/TakeShot.jpg)
 3. While the shot is being taken, you can click the “Cancel Shot” button to abort.
 4. After the shot data have been returned from the total station, you will be given the option to save the shot or discard the data.
 5. (*optional*) When saving the shot, you can add a comment (such as “NE corner” or “Edge of marsh”) to assist your recollection and interpretation of the data.  
-![Save Last Shot form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_SaveLastShot.png?raw=true)
+![Save Last Shot form](img/SaveLastShot.jpg)
 
 Continue taking shots, each of which will be saved to the current grouping. To begin taking shots in a new grouping, simply create a new grouping as described above. You can also end a grouping or session deliberately. (This is useful if multiple excavators are using the total station and you want to prevent the accidental addition of new shots to existing groupings.)
 
@@ -173,7 +173,7 @@ Note that any grouping shot with an “Isolated Point” geometry can logically 
 1. Click the gears icon in the upper right to open the Utilities panel.
 2. Select the desired session under “Export Surveying Session Data.”
 3. Click the “Export” button.  
-![Export Surveying Session Data form](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-frontend_ExportData.png?raw=true)
+![Export Surveying Session Data form](img/ExportData.jpg)
 4. Find the newly-downloaded “ShootPoints Data (*session name*).zip” file in your Downloads folder and unzip it.
 
 The unzipped directory will be named “ShootPoints Data (*session name*)” with the following structure:
@@ -226,4 +226,4 @@ The contents of the files are as follows:
 # View Your Survey Data
 * Add the GCPs to the photogrammetry program of your choosing to help create georeferenced 3D models and orthomosaics.
 * Plot the shapefiles of your survey data in your project GIS. These can be imported directly, but [QGIS](https://qgis.org/) users can also install the [ShootPoints-Web Plotter plugin](https://plugins.qgis.org/plugins/shootpointswebplotter-main/) to quickly plot the downloaded shapefiles, styled beautifully.  
-![ShootPoints-Web Plotter QGIS Plugin](https://github.com/Lugal-PCZ/readme-images/blob/main/shootpoints-web-plotter_PluginInstall.jpg?raw=true)
+![ShootPoints-Web Plotter QGIS Plugin](img/PluginInstall.jpg)
