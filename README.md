@@ -10,19 +10,17 @@
 # Overview
 ShootPoints-Web is a set of programs for total station surveying. Based on the [SiteMap](https://www.academia.edu/78544111/SiteMap_Innovations_in_Computer_Based_Mapping_for_Archaeologists) surveying package originally developed at the Museum Applied Science Center for Archaeology (MASCA) at the University of Pennsylvania Museum, ShootPoints-Web streamlines and simplifies total station operation and data collection on archaeological excavations. Developed independently, it was heavily tested and refined at the Penn Museum projects at Ur and [Lagash](https://web.sas.upenn.edu/lagash/), Iraq.
 
-ShootPoints-Web consists of two interrelated projects: shootpoints-web-api and shootpoints-web-frontend. Though shootpoints-web-api can be run from a laptop connected directly to the total station via a serial cable, it is intended to be installed on a dedicated Raspberry Pi mounted on the tripod of the total station, and controlled wirelessly via shootpoints-web-frontend in a web browser running on a smartphone or tablet on a local wifi network. Instructions for basic installation are provided below and instructions for creating a headless Raspberry Pi ShootPoints-Web server are forthcoming.
-
-[See ShootPoints-Web in Action.](https://youtu.be/kiFEff1Kne4)
+ShootPoints-Web consists of two interrelated projects: shootpoints-web-api and shootpoints-web-frontend. Though shootpoints-web-api can be run from a laptop connected directly to the total station via a serial cable, it is intended to be installed on a dedicated Raspberry Pi mounted on the tripod of the total station, and controlled wirelessly via shootpoints-web-frontend in a web browser running on a smartphone or tablet on a local wifi network. Generic installation instructions are provided below, and detailed instructions for creating a headless Raspberry Pi ShootPoints-Web server are on the [repository Wiki](https://github.com/Lugal-PCZ/ShootPoints-Web/wiki).
 
 
 # Why use ShootPoints-Web?
-Most surveying software, whether running on the total station itself or on an external data collector, is made for surveyors, not archaeologists and is often overly-complicated. Though the tools are the same, archaeologists’ needs are different than general land surveying, so ShootPoints-Web is designed for them. Its core principles are:
+Most surveying software, whether running on the total station itself or on an external data collector, is made for surveyors, not archaeologists, and is often overly-complicated. Though the tools are the same, archaeologists’ needs are different than general land surveying, so ShootPoints-Web is designed for them. Its core principles are:
 
 * **ShootPoints-Web records _archaeological_ data.**  
-Archaeologists need extensive metadata for their surveying points. ShootPoints-Web structures your workflow to facilitate that while shedding the tools that you’ll never need or use.  
+Archaeologists benefit from extensive metadata for their surveying points. ShootPoints-Web structures your workflow to facilitate that while shedding the tools that you’ll never need or use.  
 
 * **ShootPoints-Web is easy to learn.**  
-Tired of the typical on-site bottleneck of waiting for the one person who knows how to use your total station to be free so you can take your point elevations? ShootPoints-Web can be learned quickly by multiple team members, eliminating that bottleneck.  
+Tired of the typical on-site delay waiting for the *one* person who knows how to use your total station to be free so they can shoot your point elevations? ShootPoints-Web can be learned quickly and used by multiple team members, eliminating that bottleneck.  
 
 * **ShootPoints-Web is easy to use on-site.**  
 Setting up the total station should be the hardest part of surveying. Once that’s done, the rest of the job should be point-and-shoot. ShootPoints-Web imposes a workflow that reduces confusion and improves the quality of your surveying data.  
@@ -30,15 +28,17 @@ Setting up the total station should be the hardest part of surveying. Once that�
 * **ShootPoints-Web is inexpensive.**  
 ShootPoints-Web is open source and runs well on inexpensive computers and older total stations. Data collection is triggered from any excavator’s personal cellphone via a webapp. You can have a fully-functioning and high-quality surveying solution for about $1000.
 
+[See ShootPoints-Web in action on YouTube.](https://youtu.be/kiFEff1Kne4)
+
 
 # Requirements
-shootpoints-web-api is written for Python 3.9 and later.
+Python 3.9 and later.
 
 ShootPoints-Web’s processing and storage requirements are minimal, and it runs well on Raspberry Pi 2 Model B and better SBCs.
 
 Serial communications protocols have only been created for Topcon GTS-300 series total stations, but ShootPoint Web’s modular design means that other makes and models of total station will be added in the future.
 
-shootpoints-web-api requires the following third-party Python packages, installation instructions for which are provided below:
+shootpoints-web-api requires the following third-party Python packages:
 * [FastAPI](https://fastapi.tiangolo.com)
 * [pySerial](https://github.com/pyserial/pyserial)
 * [PyShp](https://github.com/GeospatialPython/pyshp)
@@ -46,29 +46,29 @@ shootpoints-web-api requires the following third-party Python packages, installa
 * [utm](https://github.com/Turbo87/utm)
 * [Uvicorn](https://www.uvicorn.org)
 
-# Installation
-## Clone ShootPoints-Web into your project directory:
+# Quick Start
+These instructions presume that you will be installing ShootPoints-Web on a laptop or desktop computer for initial testing purposes. Instructions for deploying ShootPoints-Web on a Raspberry Pi for fieldwork are on the [repository Wiki](https://github.com/Lugal-PCZ/ShootPoints-Web/wiki).
+
+By default, shootpoints-web-api will launch in “demo” mode with no serial connection and simulated shot data so you can familiarize yourself with the software without a total station. However, if you do have a supported total station you can choose it in the program configs for testing with an actual live connection.
+
+## Installation
+### Clone ShootPoints-Web into your project directory:
 ```bash
 git clone --recurse-submodules https://github.com/Lugal-PCZ/ShootPoints-Web.git
 ```
 
-## Install the required Python packages:
+### Install the required Python packages:
 ```bash
 pip3 install -r <path/to/>ShootPoints-Web/shootpoints-web-api/requirements.txt
 ```
 
-## Start the ShootPoints-Web software:
+### Start the ShootPoints-Web software:
 ```bash
 cd <path/to/>ShootPoints-Web/shootpoints-web-api/
 uvicorn api:app --host 0.0.0.0
 ```
 
-Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<your.computer's.ip.address>:8000/](http://<your.computer's.ip.address>:8000/).
-
-# Quick Start
-These instructions presume that you will be installing ShootPoints-Web on a laptop or desktop computer for initial testing purposes. Instructions for installing ShootPoints-Web on a Raspberry Pi for fieldwork are forthcoming.
-
-By default, shootpoints-web-api will launch in “demo” mode with no serial connection and simulated shot data so you can familiarize yourself with the software without a total station. This, however, can be easily overridden for testing with an actual live connection to a supported total station.
+Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<ip.address.of.the.shootpoints.testbed>:8000/](http://<ip.address.of.the.shootpoints.testbed>:8000/).
 
 ## Data Management and Categorization
 Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as shapefiles via the web interface for easy inclusion in your project’s GIS.
@@ -106,7 +106,7 @@ ShootPoints-Web’s interface has five primary components:
 2. **Utilities**: Click the gears icon in the upper right to download data, delete a surveying session, or reset the database. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down or reboot it.
 3. **Output Box**: The results of your commands will be displayed here.
 4. **“Surveying” Panel**: Expand this area to collect data with the total station.
-5. **“Setup” Panel**: Expand this area to input values that should be set prior to beginning surveying such as your site, total station benchmarks, and classes/subclasses.
+5. **“Setup” Panel**: Expand this area to input values that should be set prior to beginning surveying such as total station configs, your site’s survey stations, and classes/subclasses.
 
 ## Save a new site:
 1. Expand the “Setup” panel.
