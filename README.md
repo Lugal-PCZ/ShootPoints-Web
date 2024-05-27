@@ -71,16 +71,16 @@ uvicorn api:app --host 0.0.0.0
 Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<ip.address.of.the.shootpoints.testbed>:8000/](http://<ip.address.of.the.shootpoints.testbed>:8000/).
 
 ## Data Management and Categorization
-Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as shapefiles via the web interface for easy inclusion in your project’s GIS.
+Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of geometrically related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as shapefiles via the web interface for easy inclusion in your project’s GIS.
 
 ShootPoints-Web will not let you begin collecting data without the proper prerequisites (site, station coordinates, and surveying session).
 
-### Geometries
+### Groupings
 Every measurement taken with ShootPoints-Web is part of a grouping, which can be any of the following four geometries:
 * **Isolated Point**: A discrete point that encapsulates granular information such as a point elevation or the location of a small artifact.
 * **Point Cloud**: Multiple non-sequential point samples that do not carry information individually but as elements of a group that together describe an entity (such as topography).
-* **Open Polygon**: Multiple sequential points that trace an outline wherein the start and end points do not connect.
-* **Closed Polygon**: Multiple sequential points that trace an outline wherein the start point is connected to the end point.
+* **Open Polygon**: Multiple sequential points that trace an outline wherein the start and end points do not connect (such as in a shapefile linestring).
+* **Closed Polygon**: Multiple sequential points that trace an outline wherein the start point is connected to the end point (such as in a shapefile polygon).
 
 ### Classes and Subclasses
 Each grouping also is assigned a class and subclass to assist in categorization and visualization of the data collected. The following classes and subclasses are populated in the ShootPoints database with a fresh install, but new ones can be added and removed under the “Setup” panel, as is appropriate for your site.
@@ -144,7 +144,7 @@ Add additional stations if you’re working with an existing site with multiple 
 ![Start New Session with Backsight form](img/NewSessionBacksight.jpg)
 ![Start New Session with Azimuth form](img/NewSessionAzimuth.jpg)
 ![Start New Session with Resection form](img/NewSessionResection.jpg)
-8. (*optional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Backsight #2” button.
+8. (*conditional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Backsight #2” button.
 
 ## Create a new grouping:
 1. Select the appropriate geometry.
@@ -164,7 +164,7 @@ Add additional stations if you’re working with an existing site with multiple 
 5. (*optional*) When saving the shot, you can add a comment (such as “NE corner” or “Edge of marsh”) to assist your recollection and interpretation of the data.  
 ![Save Last Shot form](img/SaveLastShot.jpg)
 
-Continue taking shots, each of which will be saved to the current grouping. To begin taking shots in a new grouping, simply create a new grouping as described above. You can also end a grouping or session deliberately. (This is useful if multiple excavators are using the total station and you want to prevent the accidental addition of new shots to existing groupings.)
+Continue taking shots, each of which will be saved to the current grouping. To begin taking shots in a new grouping, simply create a new grouping as described above. You can also end a grouping or session deliberately. (This is useful if multiple excavators are using the total station and you want to prevent the accidental addition of new shots to an existing grouping.)
 
 Note that any grouping shot with an “Isolated Point” geometry can logically only have one shot saved to it, so if you’re taking a series of these (such as is typical of end-of-day point elevations in a trench), you will need to create a new grouping for each shot. Though this sounds cumbersome, in practice it is a quick process and ensures that your data are marked consistently.
 
@@ -197,6 +197,10 @@ The unzipped directory will be named “ShootPoints Data (*session name*)” wit
 |    |-- pointclouds.prj
 |    |-- pointclouds.shp
 |    |-- pointclouds.shx
+|    |-- spatialcontrol.dbf
+|    |-- spatialcontrol.prj
+|    |-- spatialcontrol.shp
+|    |-- spatialcontrol.shx
 |-- photogrammetry_gcps
 |    |-- gcps_for_dronedeploy.csv
 |    |-- gcps_for_metashape.csv
@@ -213,6 +217,7 @@ The contents of the files are as follows:
   * **closedpolygons**: All shots in the surveying session with the “Closed Polygon” ShootPoints geometry represented as _POLYGONZ_ objects.
   * **openpolygons**: All shots in the surveying session with the “Open Polygon” ShootPoints geometry represented as _POLYLINEZ_ objects.
   * **pointclouds**: All shots in the surveying session with the “Point Cloud” ShootPoints geometry represented as _MULTIPOINTZ_ objects.
+  * **spatialcontrol**: Setup and backsight stations for the current session represented as _POINTZ_ objects.
 * **photogrammetry_gcps**: Directory with files of ground control points formatted for Photogrammetry processing. All shots taken with the ShootPoints class/subclass of Operation/GCP will be automatically added to these files.
   * **gcps_for_dronedeploy.csv**: CSV file of GCPs for importing into [DroneDeploy](https://www.dronedeploy.com).
   * **gcps_for_metashape.csv**: CSV file of GCPs for importing into [Agisoft Metashape](https://www.agisoft.com).
