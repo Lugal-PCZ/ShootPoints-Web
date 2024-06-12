@@ -1,6 +1,6 @@
 [submodule "shootpoints-web-frontend"]
-	path = shootpoints-web-frontend
+	path = frontend
 	url = https://github.com/Lugal-PCZ/shootpoints-web-frontend
 [submodule "shootpoints-web-api"]
-	path = shootpoints-web-api
+	path = api
 	url = https://github.com/Lugal-PCZ/shootpoints-web-api
