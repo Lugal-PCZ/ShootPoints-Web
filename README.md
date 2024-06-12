@@ -49,7 +49,7 @@ shootpoints-web-api requires the following third-party Python packages:
 # Quick Start
 These instructions presume that you will be installing ShootPoints-Web on a laptop or desktop computer for initial testing purposes. Instructions for deploying ShootPoints-Web on a Raspberry Pi for fieldwork are on the [repository Wiki](https://github.com/Lugal-PCZ/ShootPoints-Web/wiki).
 
-By default, shootpoints-web-api will launch in “demo” mode with no serial connection and simulated shot data so you can familiarize yourself with the software without a total station. However, if you do have a supported total station you can choose it in the program configs for testing with an actual live connection.
+By default, ShootPoints-Web will launch in “demo” mode with no serial connection and simulated shot data so you can familiarize yourself with the software without a total station. However, if you do have a supported total station you can choose it in the program configs for testing with an actual live connection.
 
 ## Installation
 ### Clone ShootPoints-Web into your project directory:
@@ -59,12 +59,12 @@ git clone --recurse-submodules https://github.com/Lugal-PCZ/ShootPoints-Web.git
 
 ### Install the required Python packages:
 ```bash
-pip3 install -r <path/to/>ShootPoints-Web/shootpoints-web-api/requirements.txt
+pip3 install -r <path/to/>ShootPoints-Web/api/requirements.txt
 ```
 
 ### Start the ShootPoints-Web software:
 ```bash
-cd <path/to/>ShootPoints-Web/shootpoints-web-api/
+cd <path/to/>ShootPoints-Web/api/
 uvicorn api:app --host 0.0.0.0
 ```
 
