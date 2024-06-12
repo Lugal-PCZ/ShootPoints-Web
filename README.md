@@ -55,6 +55,7 @@ By default, ShootPoints-Web will launch in “demo” mode with no serial connec
 ### Clone ShootPoints-Web into your project directory:
 ```bash
 git clone --recurse-submodules https://github.com/Lugal-PCZ/ShootPoints-Web.git
+git submodule foreach git switch main
 ```
 
 ### Install the required Python packages:
