@@ -66,7 +66,7 @@ pip3 install -r api/requirements.txt
 
 ### Start the ShootPoints-Web software:
 ```bash
-cd <path/to/>ShootPoints-Web/api/
+cd ShootPoints-Web/api/
 uvicorn api:app --host 0.0.0.0
 ```
 
