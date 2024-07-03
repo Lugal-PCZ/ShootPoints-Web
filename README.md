@@ -70,7 +70,7 @@ cd ShootPoints-Web/api/
 uvicorn api:app --host 0.0.0.0
 ```
 
-Open a web browser on your computer and access ShootPoint Web’s interface at [http://localhost:8000/](http://localhost:8000/) or else open a web browser on a device connected to the same wifi network and navigate to [http://<ip.address.of.the.shootpoints.testbed>:8000/](http://<ip.address.of.the.shootpoints.testbed>:8000/).
+If you’re testing ShootPoints-Web on the same computer that it’s installed on, access its web interface at [http://localhost:8000/](http://localhost:8000/). To test it from a different device on the same network, open a web browser to [http://<ip.address.of.the.shootpoints.testbed>:8000/](http://<ip.address.of.the.shootpoints.testbed>:8000/).
 
 ## Data Management and Categorization
 Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of geometrically related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as shapefiles via the web interface for easy inclusion in your project’s GIS.
