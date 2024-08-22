@@ -101,14 +101,15 @@ Each grouping also is assigned a class and subclass to assist in categorization 
   * **Trench**: Excavation units.
 
 ## ShootPoints-Web Interface
-ShootPoints-Web’s interface has five primary components:
+ShootPoints-Web’s interface has six primary components:
 
 ![ShootPoints-Web interface overview](img/Overview.jpg)
 1. **On-The-Fly Adjustments**: Click the arrows icon in the upper left to set atmospheric corrections and prism offsets, which may vary from one shot to the next.
 2. **Utilities**: Click the gears icon in the upper right to download data, delete a surveying session, or reset the database. Also, if ShootPoints-Web is running on a Raspberry Pi, you will have options to safely shut it down or reboot it.
 3. **Output Box**: The results of your commands will be displayed here.
 4. **“Surveying” Panel**: Expand this area to collect data with the total station.
-5. **“Setup” Panel**: Expand this area to input values that should be set prior to beginning surveying such as total station configs, your site’s survey stations, and classes/subclasses.
+5. **Live Map Icon**: Click the map icon to view a map of your current surveying session.
+6. **“Setup” Panel**: Expand this area to input values that should be set prior to beginning surveying such as total station configs, your site’s survey stations, and classes/subclasses.
 
 ## Save a new site:
 1. Expand the “Setup” panel.
@@ -170,6 +171,13 @@ Continue taking shots, each of which will be saved to the current grouping. To b
 
 Note that any grouping shot with an “Isolated Point” geometry can logically only have one shot saved to it, so if you’re taking a series of these (such as is typical of end-of-day point elevations in a trench), you will need to create a new grouping for each shot. Though this sounds cumbersome, in practice it is a quick process and ensures that your data are marked consistently.
 
+## View progress:
+1. Clicking the map icon reveals a map showing the current surveying session.
+2. The latest unsaved shot is shown in red.
+3. Use familiar pinch and drag gestures to zoom and pan the map.
+4. Click on any point, line, or polygon to see its subclass and label.
+5. Click the “X” in the upper right of the map to return to the data collection interface.  
+![Live Map](img/LiveMap.jpg)
 
 ## Download data:
 1. Click the gears icon in the upper right to open the Utilities panel.
