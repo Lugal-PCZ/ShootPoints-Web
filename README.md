@@ -137,17 +137,17 @@ Add additional stations if you’re working with an existing site with multiple 
 4. Choose the site.
 5. Enter the current temperature and pressure. ShootPoints-Web handles atmospheric corrections automatically.
 6. Choose the session type:
-   * **Backsight**: You will set up on a pre-set station with known coordinates and shoot a backsight to a second pre-set station. ShootPoints-Web will calculate the instrument height and set the azimuth on the total station.
-     * Select the backsight station and enter the height of the prism pole.
    * **Azimuth**: You will set up on a pre-set station with known coordinates and aim the total station at a known landmark. ShooPoints-Web will set the azimuth on the total station.
      * Enter the azimuth to the known landmark and the height of the total station above the occupied point.
+   * **Backsight**: You will set up on a pre-set station with known coordinates and shoot a backsight to a second pre-set station. ShootPoints-Web will calculate the instrument height and set the azimuth on the total station.
+     * Select the backsight station and enter the height of the prism pole.
    * **Resection**: You will set up on an arbitrary point and shoot backsights to two pre-set stations with known coordinates. ShootPoints-Web will calculate the coordinates of the occupied point and set the azimuth on the total station.
      * Choose the two backsight stations and enter the height of the total station above the occupied point.
-7. Sight the total station on the prism or landmark and click the “Shoot Backsight” or “Set Instrument Azimuth” button. (The button label will change, depending on the session type.)  
-![Start New Session with Backsight form](img/NewSessionBacksight.jpg)
+7. Sight the total station on the prism or landmark and click the “Set Instrument Azimuth,” “Shoot Backsight,” or “Shoot Left Backsight” button. (The button label will change, depending on the session type.)  
 ![Start New Session with Azimuth form](img/NewSessionAzimuth.jpg)
+![Start New Session with Backsight form](img/NewSessionBacksight.jpg)
 ![Start New Session with Resection form](img/NewSessionResection.jpg)
-8. (*conditional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Backsight #2” button.
+8. (*conditional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Right Backsight” button.
 
 ## Create a new grouping:
 1. Select the appropriate geometry.
@@ -171,7 +171,7 @@ Continue taking shots, each of which will be saved to the current grouping. To b
 
 Note that any grouping shot with an “Isolated Point” geometry can logically only have one shot saved to it, so if you’re taking a series of these (such as is typical of end-of-day point elevations in a trench), you will need to create a new grouping for each shot. Though this sounds cumbersome, in practice it is a quick process and ensures that your data are marked consistently.
 
-## View progress:
+## Monitor progress:
 1. Clicking the map icon reveals a map showing the current surveying session.
 2. The latest unsaved shot is shown in red.
 3. Use familiar pinch and drag gestures to zoom and pan the map.
