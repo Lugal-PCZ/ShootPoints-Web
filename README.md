@@ -144,9 +144,9 @@ Add additional stations if you’re working with an existing site with multiple 
    * **Resection**: You will set up on an arbitrary point and shoot backsights to two pre-set stations with known coordinates. ShootPoints-Web will calculate the coordinates of the occupied point and set the azimuth on the total station.
      * Choose the two backsight stations and enter the height of the total station above the occupied point.
 7. Sight the total station on the prism or landmark and click the “Set Instrument Azimuth,” “Shoot Backsight,” or “Shoot Left Backsight” button. (The button label will change, depending on the session type.)  
-![Start New Session with Azimuth form](img/NewSessionAzimuth.jpg)
-![Start New Session with Backsight form](img/NewSessionBacksight.jpg)
-![Start New Session with Resection form](img/NewSessionResection.jpg)
+![Start New Session with Azimuth form](img/NewSessionAzimuth.jpg)  
+![Start New Session with Backsight form](img/NewSessionBacksight.jpg)  
+![Start New Session with Resection form](img/NewSessionResection.jpg)  
 8. (*conditional*) If you’re starting a session by resection, sight on the prism at second backsight and click the “Shoot Right Backsight” button.
 
 ## Create a new grouping:
