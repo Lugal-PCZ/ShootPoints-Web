@@ -46,6 +46,10 @@ shootpoints-web-api requires the following third-party Python packages:
 * [utm](https://github.com/Turbo87/utm)
 * [Uvicorn](https://www.uvicorn.org)
 
+shootpoints-web-frontend bundles the following third-party Javascript libraries:
+* [Leaflet](https://leafletjs.com)
+* [Leaflet.SvgShapeMarkers](https://github.com/rowanwins/Leaflet.SvgShapeMarkers)
+
 # Quick Start
 These instructions presume that you will be installing ShootPoints-Web on a laptop or desktop computer for initial testing purposes. Instructions for deploying ShootPoints-Web on a Raspberry Pi for fieldwork are on the [repository Wiki](https://github.com/Lugal-PCZ/ShootPoints-Web/wiki).
 
