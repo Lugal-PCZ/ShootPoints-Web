@@ -56,21 +56,21 @@ These instructions presume that you will be installing ShootPoints-Web on a lapt
 By default, ShootPoints-Web will launch in “demo” mode with no serial connection and simulated shot data so you can familiarize yourself with the software without a total station. However, if you do have a supported total station you can choose it in the program configs for testing with an actual live connection.
 
 ## Installation
-### Clone ShootPoints-Web into your project directory:
-```bash
-git clone --recurse-submodules https://github.com/Lugal-PCZ/ShootPoints-Web.git
-cd ShootPoints-Web
-git submodule foreach git switch main
-```
+If they’re not already in your system, install [python](https://www.python.org/downloads/) and [git](https://git-scm.com/downloads).
 
+### Clone ShootPoints-Web into your project directory:
+ ```bash
+ git clone --recurse-submodules https://github.com/Lugal-PCZ/ShootPoints-Web.git
+ cd ShootPoints-Web
+ git submodule foreach git switch main
+ ```
 ### Install the required Python packages:
 ```bash
+cd api
 pip3 install -r api/requirements.txt
 ```
-
 ### Start the ShootPoints-Web software:
 ```bash
-cd ShootPoints-Web/api/
 uvicorn api:app --host 0.0.0.0
 ```
 
