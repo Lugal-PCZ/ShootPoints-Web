@@ -32,7 +32,7 @@ ShootPoints-Web is open source and runs well on inexpensive computers and older 
 
 
 # Requirements
-Python 3.9 and later.
+Python 3.11 and later.
 
 ShootPoints-Web’s processing and storage requirements are minimal, and it runs well on Raspberry Pi 2 Model B and better SBCs.
 
