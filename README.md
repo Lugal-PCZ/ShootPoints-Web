@@ -66,11 +66,11 @@ If they’re not already in your system, install [python](https://www.python.org
  ```
 ### Install the required Python packages:
 ```bash
-cd api
 pip3 install -r api/requirements.txt
 ```
 ### Start the ShootPoints-Web software:
 ```bash
+cd api
 uvicorn api:app --host 0.0.0.0
 ```
 
