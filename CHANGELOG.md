@@ -5,10 +5,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
-## [Unreleased]
+## [1.8.0] - 2025-11-14
 
+### Added
 - Addition of CHANGELOG file.
-- Moving the configs settings from the configs.ini file into the ShootPoints database so that configs can be backed up along with the project database.
+
+### Changed
+- Moved the configs settings from the configs.ini file into the ShootPoints database so that configs can be backed up along with the project database.
+- Indicates the existence of an unsaved shot when viewing the details of the current grouping or current session.
+- Added an alert dialog to indicate that a database reset has completed.
 
 ## [1.7.5] - 2025-11-05
 
