@@ -5,6 +5,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.9.0]
+
+### Changed
+- Configs now take separate values for horizontal vs. vertical backsight error tolerance.
+- Instrument height is no longer automatically calculated when setting up with a backsight. Now it has to be entered alongside the prism height. This forces the surveyor to respect the backsight tolerance for vertical errors. (Before, it used to simply prompt the surveyor to check that the calculated instrument height was correct.)
+
+### Fixed
+- Resolved database updating errors that occurred with a fresh install (as opposed to an upgrade of an existing installation).
+
 ## [1.8.0] - 2025-11-14
 
 ### Added
@@ -17,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.5] - 2025-11-05
 
-### Changes
+### Changed
 - Make “End Session” checkbox in Raspberry Pi power off form checked by default.
 - Remove subclass id from delete_subclass() error message.
 - Sort sessions in reverse chronological order in Export Session menu so that the most recent session is always first.
@@ -39,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.3] - 2025-10-19
 
-### Changes
+### Changed
 - Show the stakeout widgets (disabled) in cancelShotForm and saveLastShotForm, in order to minimize confusion.
 - Improve spacing between form elements in the UI.
 - Force a numeric keyboard for all numeric fields in the UI.
