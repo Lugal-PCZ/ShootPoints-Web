@@ -5,6 +5,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.9.1]
+
+### Changed
+- Save the elevation of new stations created by the resection routine to three decimal places.
+
+### Fixed
+- Vertical variance for the left and right backsight stations during a resection is now compared against the vertical tolerance instead of the horizontal tolerance.
+
 ## [1.9.0]
 
 ### Changed
