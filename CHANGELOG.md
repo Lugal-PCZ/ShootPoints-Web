@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.9.2]
+
+### Fixed
+- Replaced the curly quotes in the comments of the blank_database.sql file with straight quotes because they were causing fresh installs on Windows 11 to fail due to a character encoding error.
+
 ## [1.9.1]
 
 ### Changed
