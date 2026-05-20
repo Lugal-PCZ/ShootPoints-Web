@@ -5,6 +5,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.9.3]
+
+### Fixed
+- Squashed a bug that could cause Windows to fail to successfully open the serial port.
+- Changed the value of the dbversion field in the savedstate table in blank_database.sql to 4. (It has been incorrectly left at 2, before.)
+
+### Changed
+- Added reminders to the VERSION file to update the appropriate matching values in index.html and blank_database.sql. This only affects project maintenance, not operation.
+- Tidied up what gets printed to the terminal console when the application is loaded. This doesn’t affect the program’s function in any way, but makes testing and debugging easier to read.
+
 ## [1.9.2]
 
 ### Fixed
