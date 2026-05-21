@@ -5,7 +5,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
-## [1.9.3]
+## [in progress]
+
+### Changed
+- Added updating instructions to the README.
+- Updated the README to reflect UI changes.
+- Added dates to the 1.9.x entries in the CHANGELOG.
+
+## [1.9.3] - 2026-05-20
 
 ### Fixed
 - Squashed a bug that could cause Windows to fail to successfully open the serial port.
@@ -15,12 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added reminders to the VERSION file to update the appropriate matching values in index.html and blank_database.sql. This only affects project maintenance, not operation.
 - Tidied up what gets printed to the terminal console when the application is loaded. This doesn’t affect the program’s function in any way, but makes testing and debugging easier to read.
 
-## [1.9.2]
+## [1.9.2] - 2026-05-20
 
 ### Fixed
 - Replaced the curly quotes in the comments of the blank_database.sql file with straight quotes because they were causing fresh installs on Windows 11 to fail due to a character encoding error.
 
-## [1.9.1]
+## [1.9.1] - 2026-05-07
 
 ### Changed
 - Save the elevation of new stations created by the resection routine to three decimal places.
@@ -28,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Vertical variance for the left and right backsight stations during a resection is now compared against the vertical tolerance instead of the horizontal tolerance.
 
-## [1.9.0]
+## [1.9.0] - 2026-05-07
 
 ### Changed
 - Configs now take separate values for horizontal vs. vertical backsight error tolerance.

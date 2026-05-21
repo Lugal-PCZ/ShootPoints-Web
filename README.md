@@ -76,6 +76,26 @@ uvicorn api:app --host 0.0.0.0
 
 If you’re testing ShootPoints-Web on the same computer that it’s installed on, access its web interface at [http://localhost:8000/](http://localhost:8000/). To test it from a different device on the same network, open a web browser to [http://<ip.address.of.the.shootpoints.testbed>:8000/](http://<ip.address.of.the.shootpoints.testbed>:8000/).
 
+## Updating
+The following commands will update your ShootPoints-Web installation to the latest version on GitHub.
+
+### If installed on a headless Raspberry Pi configured with the script on the repository Wiki:
+1. Connect the Raspberry Pi to your local network with ethernet and power it on. (Models without an ethernet port will need a USB to ethernet adapter.)
+2. Use ssh to connect to the Raspberry Pi from another computer on the same network. (Window users may need to install [Putty](https://www.putty.org) first.)  
+`ssh shootpoints@shootpoints.local`  
+_Note 1_: depending on your network configuration, you may have to connect to the Raspberry Pi with its IP address instead of shootpoints.local.  
+_Note 2:_ the password will be what you configured when flashing the SSD (probably “shootpoints”).
+3. Run the updater script that was created by the installation script.  
+`update-shootpoints.sh`
+
+### If installed manually:
+```bash
+cd </path/to/>ShootPoints-Web
+git pull --recurse-submodules
+git submodule foreach git switch main
+git submodule foreach git pull
+```
+
 ## Data Management and Categorization
 Following the model developed for SiteMap, ShootPoints-Web categorizes shot data to simplify its visualization and interpretation. The two primary categorizations are groupings (collections of geometrically related points) and class/subclass (archaeological metadata about the shots). All data are saved to a local database which can be downloaded *in toto* or exported as shapefiles via the web interface for easy inclusion in your project’s GIS.
 
@@ -143,10 +163,10 @@ Add additional stations if you’re working with an existing site with multiple 
 6. Choose the session type:
    * **Azimuth**: You will set up on a pre-set station with known coordinates and aim the total station at a known landmark. ShooPoints-Web will set the azimuth on the total station.
      * Enter the azimuth to the known landmark and the height of the total station above the occupied point.
-   * **Backsight**: You will set up on a pre-set station with known coordinates and shoot a backsight to a second pre-set station. ShootPoints-Web will calculate the instrument height and set the azimuth on the total station.
-     * Select the backsight station and enter the height of the prism pole.
-   * **Resection**: You will set up on an arbitrary point and shoot backsights to two pre-set stations with known coordinates. ShootPoints-Web will calculate the coordinates of the occupied point and set the azimuth on the total station.
-     * Choose the two backsight stations and enter the height of the total station above the occupied point.
+   * **Backsight**: You will set up on a pre-set station with known coordinates and shoot a backsight to a second pre-set station. ShootPoints-Web will set the azimuth on the total station and check that the horizontal and vertical variance between the expected distances and the measured distances is within the limits set in the “Set Configs” panel.
+     * Select the backsight station and enter the height of the total station above the occupied point and the height of the prism pole.
+   * **Resection**: You will set up on an arbitrary point and shoot backsights to two pre-set stations with known coordinates. ShootPoints-Web will calculate the coordinates of the occupied point, set the azimuth on the total station, and check that the vertical variance between the expected elevations and the measured elevation is within the limits set in the “Set Configs” panel.
+     * Choose the two backsight stations and enter the height of the total station above the occupied point and the height of the prism pole.
 7. Sight the total station on the prism or landmark and click the “Set Instrument Azimuth,” “Shoot Backsight,” or “Shoot Left Backsight” button. (The button label will change, depending on the session type.)  
 ![Start New Session with Azimuth form](img/NewSessionAzimuth.jpg)  
 ![Start New Session with Backsight form](img/NewSessionBacksight.jpg)  
