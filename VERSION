@@ -1,6 +1,7 @@
-app=1.9.3
+app=1.10.0
 database=4
 
 # Whenever updating the app version, be sure to update the CHANGELOG.
 # After updating the app version number, be sure to update the cache busters in index.html.
 # After updating the database version number, be sure to update the dbversion inserted into savedstate in blank_database.sql.
+# Be sure to tag ShootPoints-Web with the app version before pushing back to GitHub.

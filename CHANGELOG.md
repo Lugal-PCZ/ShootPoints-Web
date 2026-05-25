@@ -5,12 +5,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
-## [in progress]
+## [1.10.0] - 2026-05-25
+
+### Added
+- Added exporters and importers for Classes/Subclasses and Stations.
+- Added updating instructions to the README.
 
 ### Changed
-- Added updating instructions to the README.
-- Updated the README to reflect UI changes.
-- Added dates to the 1.9.x entries in the CHANGELOG.
+- Rearranged the Utilities window, grouping similar functions under distinct headers.
+- Updated the README to reflect the UI changes.
+
+### Fixed
+- Added dates, which had been accidentally omitted, to the 1.9.x entries in this CHANGELOG.
 
 ## [1.9.3] - 2026-05-20
 
