@@ -204,8 +204,8 @@ Note that any grouping shot with an “Isolated Point” geometry can logically 
 ![Live Map](img/LiveMap.jpg)
 
 ## Download data:
-1. Click the gears icon in the upper right to open the Utilities panel.
-2. Select the desired session under “Export Surveying Session Data.”
+1. Click the gears icon in the upper right to open the Utilities window.
+2. Select the desired session under the “Export Surveying Session Data” panel.
 3. Click the “Export” button.  
 ![Export Surveying Session Data form](img/ExportData.jpg)
 4. Find the newly-downloaded “ShootPoints Data (*session name*).zip” file in your Downloads folder and unzip it.
