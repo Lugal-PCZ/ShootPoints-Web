@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.10.1] - 2026-05-26
+
+### Fixed
+- Squashed bug that caused session exports to fail when creating GCP files on sites with only site local coordinates.
+
 ## [1.10.0] - 2026-05-25
 
 ### Added

@@ -1,4 +1,4 @@
-app=1.10.0
+app=1.10.1
 database=4
 
 # Whenever updating the app version, be sure to update the CHANGELOG.
