@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.10.2] - 2026-06-04
+
+### Fixed
+- Removed conststraint from stations table in database that is better handled in code.
+- Update stations menus in the new session panel when a station is added or removed after the operator has already chosen a site. Previously they had to refresh the page or deselect/re-select the site to force a refresh of the stations menus.
+
 ## [1.10.1] - 2026-05-26
 
 ### Fixed
