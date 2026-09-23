@@ -5,6 +5,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- (Added, Changed, Deprecated, Removed, Fixed, Security) -->
 
+## [1.10.3] - 2026-09-23
+
+### Changed
+- Improved the hiding of popup windows. Now you can click off of a popup in order to hide it, instead of only clicking on the element that first showed the popup.
+
+### Fixed
+- Fixed bug introduced in 10.0.0 that prevented the Raspberry Pi Utilities (Shut Down/Reboot buttons) from displaying when they should.
+
 ## [1.10.2] - 2026-06-04
 
 ### Fixed
